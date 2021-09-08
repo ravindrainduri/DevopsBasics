@@ -5,12 +5,21 @@
 #RAVI-COMMIT
 
 pool:
-  name: Azure Pipelines
+  name: newpool
   demands: maven
 
 #Your build pipeline references an undefined variable named ‘Parameters.mavenPOMFile’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
 
 steps:
+- task: AWSShellScript@1
+  inputs:
+    awsCredentials: 'azure-aws'
+    regionName: 'ap-south-1'
+    scriptType: 'inline'
+    inlineScript: |
+      # You can write your script inline here
+       mkdir -p /git/newdir
+
 - task: Maven@3
   displayName: 'Maven pom.xml'
   inputs:
