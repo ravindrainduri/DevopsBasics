@@ -18,7 +18,7 @@ steps:
     scriptType: 'inline'
     inlineScript: |
       # You can write your script inline here
-       mkdir -p /git/newdir
+       sudo mkdir -p /git/newdir
 
 - task: Maven@3
   displayName: 'Maven pom.xml'
